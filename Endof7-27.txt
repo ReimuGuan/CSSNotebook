@@ -1,0 +1,214 @@
+/*
+  css3新增内容
+
+  1.属性选择器
+  E[attrname] 表示选中E元素并且E元素拥有attrname属性
+  E[attrname=value] 表示选中E元素并且E元素拥有attrname=value属性
+  E[attrname~=value] 表示选中E元素,要求属性值是一个词列表 a b c d，这个选择器要求Value值是词列表中的一个值
+  E[attrname^=value] 表示选中E元素并且E元素拥有以Value开头的属性attrname属性
+  E[attrname$=value] 表示选中E元素并且E元素拥有以Value结尾的属性attrname属性
+  E[attrname*=value] 表示选中E元素并且E元素拥有包含Value的属性值attrname。
+  **/
+p{
+  height:50px;
+  border:1px solid #000;
+  }
+  /**
+  E:nth-child(n) 表示获取E标签的父标签的第n(自然数)子标签，子标签也必须是E
+  */
+  /*p:nth-child(odd){*/
+  /*background: red;*/
+  /*}*/
+  /*p:nth-child(even){*/
+  /*background: green;*/
+  /*}*/
+  /* h1:nth-child(2){
+  background:red;
+  }*/
+  /* body *:nth-child(n){
+  background:red;
+  }*/
+  /*从后向前数n个元素*/
+  /*p:nth-last-child(1){*/
+  /*background: red;*/
+  /*}*/
+  /**
+  p:nth-of-type(2) 表示p的父标签中的第n个节点，且节点类型是p
+  */
+  /*p:nth-of-type(2){*/
+  /*background:red;*/
+  /*}*/
+  /*p:nth-last-of-type(2){*/
+  /*background:red;*/
+  /*}*/
+
+  /*p:first-child{*/
+  /*background: red;*/
+  /*}*/
+  /*p:first-of-type{*/
+  /*background: red;*/
+  /*}*/
+  /*p:last-child{*/
+  /*background: red;*/
+  /*}*/
+  /*p:last-of-type{*/
+  /*background: red;*/
+  /*}*/
+ /*
+  E:disabled 表示不可用的空间
+  E:enabled 表示当前可用的控件
+  E:checked 表示当前可用的控件radio 和checkbox
+  E~F 这个选自器表示 E 元素旁边的F元素 毗邻元素
+  */
+h1{
+  width: 300px;
+  border:1px solid #000;
+  font: 14px/30px "宋体";
+  direction: rtl;
+  unicode-bidi: bidi-override;
+  /**
+  direction: rtl;
+  unicode-bidi: bidi-override;
+  这两个属性一般情况下同事出现，direction控制文字的方向unicode-bidi控制文字的排版方法
+  */
+  }
+
+/*
+ display: -webkit-box; 采用弹性盒子模型布局
+  -webkit-box-orient: horizontal; 默认值，采用水平布局
+  -webkit-box-direction:reverse;采用逆序的方法去排列
+  -webkit-box-ordinal-group: 2;设置盒子在盒子组中的排序
+
+
+  还可以对盒子模型的弹性空间进行管理
+  -webkit-box-pack: end;这个设置就是让所有的子元素显示在右侧
+  start:个设置就是让所有的子元素显示在左侧
+  justify:富裕空间在元素中间平分
+  -webkit-box-align:center start end 上中下的布局方式
+*/
+
+/**-webkit-column-width是指定每列显示多宽，自动计算几列
+-webkit-column-count: 4 指定几列。自动计算多宽
+*/
+/*-webkit-column-width:250px ; */
+-webkit-column-count: 3;
+-webkit-column-gap:60px;
+-webkit-column-rule:2px solid red;/*设置间隔线*/
+<meta charset="UTF-8">
+<title>响应式布局方式</title>
+<link rel="stylesheet" media="screen and (min-width:800px)" href="css01.css">
+<link rel="stylesheet" media="screen and (min-width:400px) and (max-width:800px)" href="css02.css">
+<link rel="stylesheet" media="screen and (max-width:400px)" href="css03.css">
+<meta charset="UTF-8">
+<title>响应式布局方式横竖屏幕</title>
+<link rel="stylesheet" media="all and (orientation:portrait)" href="css01.css">
+<link rel="stylesheet" media="screen and (orientation:landscape)" href="css02.css">
+
+box-sizing: border-box;/**自动调整宽度，让border+padding+内容区域一共是180*/
+
+/**-webkit-linear-gradient 渐变效果
+  第一个参数表示起始的位置，可以使用left.top，right,bottom
+  还可以使用角度 正度表示逆时针偏转
+*/
+/*background-image: -webkit-linear-gradient(-30deg,red 0,yellow 30px,green 60px,purple,blue);*/
+/*background-image: -webkit-linear-gradient(-30deg,red 0,yellow 10%,yellow 20% ,green 30%);*/
+background-image: -webkit-repeating-linear-gradient(-30deg,red 0,yellow 10px);
+/**
+  background-size:x y 设置背景图片的位置 x,y是指图片要显示的宽和高
+  background-clip: content-box; 表示背景只显示在内容区域
+  background-clip:padding-box;表示背景显示从padding区域开始显示
+  background-clip:border-box;表示背景显示从border区域开始显示
+  */
+  /*background-size:100% 50%;*/
+.box{
+  width: 400px;
+  height:400px;
+  padding: 10px;
+  border: 10px solid rgba(0,0,0,0.3);
+  background: url("girl.jpg") no-repeat;
+  /*background-origin: border-box;*/
+  background-origin:content-box;
+  background-clip: content-box;
+  }
+  /** transition: 指定过渡的效果*/
+        /** transition: 时间 过渡属性（默认是all）*/
+        /*transition:1s width,3s height,4s background;*/
+        /*transition:1s width,2s 1s!*延时时间*! height,3s 3s background,3s 6s border-radius;*/
+        .box{
+            width:100px;
+            height:100px;
+            background: red;
+            /*要求：宽度执行1s,1s后执行高度变换，3秒后执行背景颜色的变化*/
+            /*transition:1s width,2s 1s!*延时时间*! height,3s 3s background,3s 6s border-radius;*/
+            /*transition:3s  -webkit-border-radius;*/
+            transition: 2s all  ease-in-out;
+            /**这个表示动画执行的速度
+                ease:先快后慢
+                linear:匀速
+                ease-in 一直加速
+                 ease-in-out 先加速，在减速
+            */
+/*transitionEnd表示过渡效果执行完毕后，触发的事件**/
+           /**WebkitTransitionEnd 这个事件的特点，任何一个属性只要加上过渡效果，发生变化，最后都会出发这个事件*/
+
+body:hover .box{
+            /**旋转点默认在中心点*/
+            /*-webkit-transform: rotate(180deg);*/
+            /*-webkit-transform:scaleX(2) scaleY(0.8);*/
+            /*-webkit-transform:scale(2,3);*/
+            /*-webkit-transform:translate(-100px,200px);*/
+            /*-webkit-transform: translateY(200px);*/
+            -webkit-transform:skew(45deg,30deg);
+        }
+
+li a{
+            text-decoration: none;
+            -webkit-transform: skewX(-30deg);
+            display: inline-block;
+        }
+
+-webkit-transform-style: preserve-3d;/**构建3d空间*/
+            -webkit-perspective:100px; /**进大远小*/
+
+ -webkit-mask:url("mask.png") no-repeat;
+ 动画
+@-webkit-keyframes girls {
+            0%{
+                left: 0;
+                top:0;
+            }
+            25%{
+                left: 300px;
+                top:0;
+            }
+            50%{
+                left: 300px;
+                top: 300px;
+            }
+            75%{
+                left: 0;
+                top: 300px;
+            }
+            100%{
+                left: 0;
+                top: 0;
+            }
+        }
+        .wrap{
+            width: 400px;
+            height:400px;
+            border:1px solid #000;
+            position: relative;
+        }
+        .box{
+            width: 100px;
+            height:100px;
+            background: red;
+            position: absolute;
+            left:0;
+            top:0;
+            /**infinite 表示执行的次数是无限次
+            alternate 表示动画基数次是正序执行，偶数次是逆序执行。
+            */
+            /*-webkit-animation: 2s girls linear infinite alternate;*/
+        }
